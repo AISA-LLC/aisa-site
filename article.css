@@ -1,0 +1,60 @@
+/* ==========================================================================
+   AISA article add-on styles
+   Loaded AFTER styles.css. Adds only article-prose + article-index rules.
+   Reuses existing tokens (--orange, --ink, --line, --navy-*) from styles.css.
+   ========================================================================== */
+
+/* Neutral reading surface behind the white article page — overrides the
+   body watermark so the article reads like a document on a clean desk. */
+.article-surface{background:#eef2f7;background-image:none}
+.article-surface .grid-bg,.article-surface .grain{display:none}
+
+/* ---- Article body prose ---- */
+/* Solid "document page" surface so the site's watermark background does not
+   bleed through behind the article text. */
+.article-page{background:#ffffff}
+.article-body{width:min(820px,calc(100% - 44px));margin-inline:auto;background:#ffffff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-soft);padding:clamp(28px,4vw,64px)}
+.article-body p{font-size:1.12rem;line-height:1.78;color:#33475b;margin:0 0 1.25em}
+.article-body h2{font-size:clamp(1.5rem,2.4vw,1.95rem);line-height:1.25;color:var(--ink);margin:2.1em 0 .7em;letter-spacing:-.01em}
+.article-body h3{font-size:1.3rem;color:var(--ink);margin:1.8em 0 .5em}
+.article-body strong{color:var(--ink);font-weight:700}
+.article-body em{font-style:italic}
+.article-body a{color:var(--orange);text-decoration:underline;text-underline-offset:2px}
+.article-body ul,.article-body ol{margin:0 0 1.3em;padding-left:1.3em;color:#33475b}
+.article-body li{font-size:1.1rem;line-height:1.7;margin:0 0 .5em}
+.article-body .lede{font-size:1.28rem;line-height:1.6;color:#43586c;margin-bottom:1.5em}
+
+/* Pull quote — mirrors the site's orange accent language */
+.article-body .pull{margin:1.7em 0;padding:6px 0 6px 26px;border-left:4px solid var(--orange)}
+.article-body .pull p{font-size:1.42rem;line-height:1.42;font-weight:700;color:var(--ink);margin:0}
+
+/* Byline / meta row under the title */
+.article-meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:6px;font:700 13px/1 JetBrains Mono,ui-monospace,monospace;letter-spacing:.04em;color:#9fb7d2;text-transform:uppercase}
+.article-meta .dot{opacity:.5}
+
+/* Closing note / CTA block at end of an article */
+.article-cta{margin-top:2.4em;padding:26px 28px;border-radius:20px;background:linear-gradient(135deg,#0c1c30,#17395c);border:1px solid rgba(255,255,255,.12);color:#dfeafa}
+.article-cta p{margin:0 0 14px;color:#cbd9e9;font-size:1.05rem;line-height:1.6}
+/* On the dark panel, bold text (e.g. FaultAssist(TM)) must be light, not the global near-black */
+.article-cta strong{color:#ffffff}
+.article-cta .article-cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
+/* Keep the primary button label readable on its orange fill inside the panel */
+.article-cta .button-primary{color:#ffffff}
+.article-cta .button-ghost{color:#ffffff}
+
+/* ---- Articles index / hub ---- */
+.article-list{display:grid;gap:20px;width:min(880px,calc(100% - 44px));margin-inline:auto}
+.article-card{display:block;position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 30px;box-shadow:var(--shadow-soft);text-decoration:none;color:inherit;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.article-card:hover{transform:translateY(-3px);box-shadow:0 26px 46px -30px rgba(12,23,37,.5);border-color:rgba(232,93,4,.4)}
+.article-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:22px 22px 0 0;background:linear-gradient(90deg,var(--orange),var(--cyan,#1f9cb8));opacity:.9}
+.article-card .article-card-meta{font:800 11px/1 JetBrains Mono,ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.article-card .article-card-meta .dot{opacity:.5;color:#9fb7d2}
+.article-card h2{font-size:1.5rem;line-height:1.25;color:var(--ink);margin:0 0 10px;letter-spacing:-.01em}
+.article-card p{margin:0;color:#54687b;font-size:1.02rem;line-height:1.6}
+.article-card .read-more{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font:800 13px JetBrains Mono,ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--orange)}
+
+@media (max-width:640px){
+  .article-body p,.article-body li{font-size:1.05rem}
+  .article-body .pull p{font-size:1.2rem}
+  .article-card{padding:22px 22px}
+}
