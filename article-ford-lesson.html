@@ -19,6 +19,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css?v=2" />
   <link rel="stylesheet" href="article.css?v=2" />
+  <!-- Safety net: guarantee the article body is visible even if the reveal
+       script does not fire (prevents a blank body under the header). -->
+  <style>.article-body.reveal{opacity:1;transform:none;}</style>
 </head>
 <body>
 <header class="site-header">
